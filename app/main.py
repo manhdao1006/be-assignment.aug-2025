@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from app.config import settings
 from app.routers import (
     auth,
     users,
@@ -11,7 +10,7 @@ from app.routers import (
     tasks,
     comments,
     attachments,
-    notifications,
+    # notifications,
     reports,
 )
 
@@ -33,7 +32,7 @@ app.add_middleware(
 )
 
 # Mount static files for uploads
-app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
+# app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 # Include routers
 app.include_router(auth.router, prefix="/api/v1", tags=["Authentication"])
@@ -43,7 +42,7 @@ app.include_router(projects.router, prefix="/api/v1", tags=["Projects"])
 app.include_router(tasks.router, prefix="/api/v1", tags=["Tasks"])
 app.include_router(comments.router, prefix="/api/v1", tags=["Comments"])
 app.include_router(attachments.router, prefix="/api/v1", tags=["Attachments"])
-app.include_router(notifications.router, prefix="/api/v1", tags=["Notifications"])
+# app.include_router(notifications.router, prefix="/api/v1", tags=["Notifications"])
 app.include_router(reports.router, prefix="/api/v1", tags=["Reports"])
 
 

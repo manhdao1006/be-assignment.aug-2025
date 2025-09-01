@@ -4,7 +4,7 @@ from typing import Optional
 
 class Settings(BaseSettings):
     # Database
-    database_url: str = "postgresql://postgres:password@localhost:5432/task_management"
+    database_url: str = "postgresql://postgres:123456@localhost:5432/task_management"
     
     # Redis
     redis_url: str = "redis://localhost:6379"
